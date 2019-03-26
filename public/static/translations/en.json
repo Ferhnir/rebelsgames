@@ -1,0 +1,30 @@
+{
+    "translation": {
+        "slogan": "English",
+        "welcome": "WELCOME TO REBELS-GAMES UNIVERSE",
+        "new_items_header": "New",
+        "new_items_text": "New ores, components, power resources and functional blocks",
+        "tiers_header": "Tiers",
+        "tiers_text": "Specially designed ‘Tier’ system",
+        "new_planets_header": "New planets",
+        "new_planets_text": "Three unique planets with theirs moons",
+        "unique_header": "Unique",
+        "unique_text": "Heavly dangeorous sphere called Dead Sun, with the most desired ores",
+        "galaxy_map": "GALAXY MAP",
+        "about": "ABOUT",
+        "surv_and_fight": "SURVIVE AND FIGHT",
+        "surv_and_fight_txt": "You can start in space near moon or on smallest planet in one out of 2 variants of ships.",
+        "surv_and_fight_list_1": "Easy – a quick start with an excess of raw materials.",
+        "surv_and_fight_list_2": "Hard – a tough start with calculated raw materials.",
+        "balance": "BALANCE",
+        "balance_txt": "It’s highly set for survival aspects. Some resources can be found only on surface of planets, and some on an asteroid, for example uranium is only in boulders on planets. If you spawn in suit, there will be no tools. You can also trade raw materials at a trading station. All accurate information has been placed directly in message of the day.",
+        "mk_adv_blocks": "MK / ADV BLOCKS",
+        "mk_adv_blocks_txt": "All blocks with tiers (MK1-3,ADV1-3) requires aditional components to build from ores:",
+        "mk_adv_blocks_list_1": "- Lateryt, Malachit, Palladium wich you can find on planets and small amounts on the moons to build MK blocks.",
+        "mk_adv_blocks_list_2": "- Unknown Ore from DEAD SUN to build ADV blocks.",
+        "community": "COMMUNITY",
+        "start_play": "Start playing now, join in game!",
+        "get_started": "Get started",
+        "inny": "EN"
+    }
+}
