@@ -2321,6 +2321,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2339,9 +2341,6 @@ __webpack_require__.r(__webpack_exports__);
           name: 'Donate',
           to: 'donate'
         }, {
-          name: 'Vote',
-          to: 'vote'
-        }, {
           name: 'Rebels Crew',
           to: 'rebelscrew'
         }, {
@@ -2358,9 +2357,6 @@ __webpack_require__.r(__webpack_exports__);
           name: 'Dotacja',
           to: 'donate'
         }, {
-          name: 'Zaglosuj na nas',
-          to: 'vote'
-        }, {
           name: 'Załoga Rebels',
           to: 'rebelscrew'
         }, {
@@ -2376,9 +2372,6 @@ __webpack_require__.r(__webpack_exports__);
         }, {
           name: 'дарить',
           to: 'donate'
-        }, {
-          name: 'Vote',
-          to: 'vote'
         }, {
           name: 'экипаж Rebels',
           to: 'rebelscrew'
@@ -62378,13 +62371,14 @@ var render = function() {
         [
           _c("b-navbar-brand", { attrs: { href: "#" } }, [
             _c("img", {
-              staticClass: "img-thumbnail mx-auto d-block",
+              staticClass: "d-inline-block img-thumbnail",
               attrs: {
                 id: "rg-logo",
                 src: "/images/Logo-Rebels-64x64.png",
                 alt: ""
               }
-            })
+            }),
+            _vm._v(" Rebels-Games\n        ")
           ]),
           _vm._v(" "),
           _c("b-navbar-toggle", { attrs: { target: "nav_collapse" } }),
@@ -62410,6 +62404,18 @@ var render = function() {
                       ]
                     )
                   }),
+                  _vm._v(" "),
+                  _c(
+                    "b-nav-item",
+                    {
+                      attrs: {
+                        href:
+                          "https://steamcommunity.com/openid/login?openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.mode=checkid_setup&openid.return_to=https%3A%2F%2Fspace-engineers.com%2Fserver%2F112111%2Fvote%2Faction%2F&openid.realm=https%3A%2F%2Fspace-engineers.com&openid.ns.sreg=http%3A%2F%2Fopenid.net%2Fextensions%2Fsreg%2F1.1&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select",
+                        target: "_blank"
+                      }
+                    },
+                    [_vm._v("Vote")]
+                  ),
                   _vm._v(" "),
                   _c(
                     "b-nav-item-dropdown",
