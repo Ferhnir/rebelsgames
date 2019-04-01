@@ -2750,14 +2750,51 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _plugins_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../plugins/i18n */ "./resources/js/plugins/i18n/index.js");
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'News',
+  data: function data() {
+    return {
+      posts: {}
+    };
+  },
   mounted: function mounted() {
-    console.log('dziala');
+    var _this = this;
+
+    axios.get('http://rebelsgames.test/api/posts').then(function (response) {
+      console.log(response.data);
+      _this.posts = response.data;
+    }).catch(function (e) {
+      console.log(e);
+    });
+  },
+  computed: {
+    currentLocale: function currentLocale() {
+      _plugins_i18n__WEBPACK_IMPORTED_MODULE_0__["default"].locale = this.$route.params.locale;
+      return this.$route.params.locale;
+    }
   }
 });
 
@@ -62326,7 +62363,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("div", { staticClass: "container my-4 py-4" }, [
+      _c("div", { staticClass: "row justify-content-md-center my-4" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-9 align-self-center" },
+          _vm._l(_vm.posts, function(post, index) {
+            return _c(
+              "b-card",
+              { key: index, staticClass: "my-4" },
+              [
+                _c(
+                  "b-media",
+                  [
+                    _c("b-img", {
+                      attrs: {
+                        slot: "aside",
+                        blank: "",
+                        "blank-color": "#ccc",
+                        width: "64",
+                        alt: "placeholder"
+                      },
+                      slot: "aside"
+                    }),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "mt-0" }, [
+                      _vm._v(_vm._s(post.subject[_vm.currentLocale]))
+                    ]),
+                    _vm._v(" "),
+                    _c("small", [
+                      _vm._v(
+                        "by " +
+                          _vm._s(post.author) +
+                          " | " +
+                          _vm._s(post.created_at) +
+                          " | " +
+                          _vm._s(post.category)
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(post.excetra[_vm.currentLocale]) +
+                          "\n                        "
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          }),
+          1
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

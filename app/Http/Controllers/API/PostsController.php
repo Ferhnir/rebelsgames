@@ -5,9 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Posts;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Carbon;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth:api')->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,6 +31,7 @@ class PostsController extends Controller
                     'slug' => '/posts/'.$post->id,
                     'category' => $post->category->name,
                     'author' => $post->author->name,
+                    'created_at' => Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('Y-m-d'),
                     'excetra' => json_decode($post->excetra),
                     'subject' => json_decode($post->subject)
                 );
