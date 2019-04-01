@@ -200,7 +200,6 @@ export default {
     .page_1st_lay {
         background-repeat: space;
         background-blend-mode: color-dodge;
-        /* background-position-y: -151px; */
         background-image: url('/images/Steam_background2.png') !important;
         background-repeat: no-repeat;
         background-size: cover;

@@ -6,7 +6,8 @@ import BootstrapVue from 'bootstrap-vue';
 
 import router from './router'
 
-import 'bootstrap/dist/css/bootstrap.css';
+import i18n from './plugins/i18n'; 
+
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 require('./bootstrap');
@@ -39,6 +40,7 @@ Vue.use(BootstrapVue);
 const app = new Vue({
     el: '#app',
     router,
+    i18n,
     components: { App },
     template: '<App/>',
 });

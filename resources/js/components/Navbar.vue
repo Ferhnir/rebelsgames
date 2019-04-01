@@ -46,7 +46,10 @@
 import enIcon from 'svg-country-flags/svg/gb.svg'
 import plIcon from 'svg-country-flags/svg/pl.svg'
 import ruIcon from 'svg-country-flags/svg/ru.svg'
-import { locales } from '../config/i18n'
+import { locales } from '../plugins/i18n/i18n.js'
+
+
+import i18n from '../plugins/i18n';
 
 export default {
     data() {
@@ -89,14 +92,10 @@ export default {
     },
     methods: {
         uri(to) {
-            const locale = this.$route.params.locale
- 
+            const locale = this.$route.params.locale 
             if (to === '/') return `/${locale}`
- 
-            // we strip leading and trailing slashes and prefix
-            // the current locale
             return `/${locale}/${to.replace(/^\/|\/$/g, '')}`
-        },        
+        },
         currentPath(lang) {
             const path = this.$route.path;
             return `/${lang}/${path.substr(4)}`;
@@ -104,6 +103,7 @@ export default {
     },
     computed: {
         currentLocale() {
+            i18n.locale = this.$route.params.locale;
             return this.$route.params.locale
         },
     },
