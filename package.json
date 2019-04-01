@@ -27,6 +27,7 @@
         "bootstrap-vue": "^2.0.0-rc.13",
         "i18next": "^15.0.7",
         "svg-country-flags": "^1.2.6",
+        "vue-i18n": "^8.10.0",
         "vue-router": "^3.0.2"
     }
 }
