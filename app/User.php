@@ -12,6 +12,7 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
 {
     use HasApiTokens, Notifiable;
 
+    protected $table = "rg_users";
     /**
      * The attributes that are mass assignable.
      *

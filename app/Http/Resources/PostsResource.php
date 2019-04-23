@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Support\Collection;
 
-class Posts extends JsonResource
+class PostsResource extends ResourceCollection
 {
     /**
      * Transform the resource into an array.
@@ -15,10 +16,8 @@ class Posts extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'name' => $this->subject,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'data' => PostResource::collection($this->collection),
         ];
     }
+
 }

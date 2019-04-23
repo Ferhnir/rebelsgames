@@ -13,7 +13,7 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('rg_roles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('power')->unique();
             $table->string('name')->unique();
@@ -27,6 +27,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('rg_roles');
     }
 }

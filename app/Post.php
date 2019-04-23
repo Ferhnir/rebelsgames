@@ -4,15 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Posts extends Model
+class Post extends Model
 {
+    protected $table = "rg_posts";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'post_category_id', 'user_id', 'subject', 'excetra'
+        'post_category_id', 'post_author_id', 'subject', 'excerpt', 'post_content'
     ];
 
     /**
@@ -31,6 +32,6 @@ class Posts extends Model
 
     public function author()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\User','post_author_id');
     }
 }

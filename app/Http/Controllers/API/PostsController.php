@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Posts;
+use App\Post;
+use App\Http\Resources\PostResource;
+use App\Http\Resources\PostsResource;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Carbon;
 
 class PostsController extends Controller
 {
@@ -18,25 +20,9 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Posts $posts)
+    public function index()
     {
-
-        // return response()->json(
-        //     $posts->category
-        // );
-
-        return response()->json(
-            $posts->all()->map(function ($post) {
-                return array(
-                    'slug' => '/posts/'.$post->id,
-                    'category' => $post->category->name,
-                    'author' => $post->author->name,
-                    'created_at' => Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('Y-m-d'),
-                    'excetra' => json_decode($post->excetra),
-                    'subject' => json_decode($post->subject)
-                );
-            })
-        );
+        return new PostsResource(Post::with(['author'])->with('category')->paginate());
     }
 
     /**
@@ -56,12 +42,10 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function show(Posts $posts)
+    public function show($postid)
     {
-        return response()->json([
-            'name' => 'Abigail',
-            'state' => 'CA'
-        ]);
+        PostResource::withoutWrapping();
+        return (new PostResource(Post::find($postid)))->postMeta($postid);
     }
 
     /**
@@ -71,7 +55,7 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Posts $posts)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -82,7 +66,7 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Posts $posts)
+    public function destroy(Post $post)
     {
         //
     }

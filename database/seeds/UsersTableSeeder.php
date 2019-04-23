@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
     {
         $now = Carbon::now();
 
-        DB::table('users')->insert([
+        DB::table('rg_users')->insert([
             'name' => 'Ferhnir',
             'email' => 'zax1984@gmail.com',
             'password' => '$2y$10$cjKNgvMfk1OZRivgpXKdQeK0LTklgxpOxtG3OhndDyulWieUwIP8.',

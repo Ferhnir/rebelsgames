@@ -13,7 +13,7 @@ class CreatePostCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_category', function (Blueprint $table) {
+        Schema::create('rg_post_category', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement();
             $table->string('name')->unique();
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreatePostCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_category');
+        Schema::dropIfExists('rg_post_category');
     }
 }

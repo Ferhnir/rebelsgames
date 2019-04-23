@@ -13,7 +13,7 @@ class CreateLanguagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('languages', function (Blueprint $table) {
+        Schema::create('rg_languages', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement();
             $table->string('code')->unique();
             $table->string('name')->unique();
@@ -28,6 +28,6 @@ class CreateLanguagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists('rg_languages');
     }
 }
