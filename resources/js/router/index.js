@@ -6,59 +6,62 @@ import { defaultLocale } from '../config/i18n';
 import faqPage from '../views/pages/faq.vue';
 import SpaceEngineersPage from '../views/pages/spaceengineers.vue';
 import News from '../views/pages/news.vue';
+import Post from '../views/pages/post.vue';
 import i18n from '../plugins/i18n';
 
+import axios from 'axios';
 Vue.use(Router);
 
-function loadPageTranslation(pageName, to, next) {
-    const lang = to.params.locale;
+// function loadPageTranslation(pageName, to, next) {
+//     const lang = to.params.locale;
 
-    if(!['en','pl','ru','fr'].includes(lang)) return next('en')
+//     if(!['en','pl','ru','fr'].includes(lang)) return next('en')
 
 
-    axios.get('/static/translations/pages/'+ pageName +'.json')
-        .then((msgs) => {
-            _.forEach(msgs.data, (v, k) => {
-                i18n.setLocaleMessage(k, msgs.data[k] || msgs);
-            });
+//     axios.get('/static/translations/pages/'+ pageName +'.json')
+//         .then((msgs) => {
+//             _.forEach(msgs.data, (v, k) => {
+//                 i18n.setLocaleMessage(k, msgs.data[k] || msgs);
+//             });
 
-            console.log(i18n.messages)
-        });
-}
+//             console.log(i18n.messages)
+//         });
+// }
 
 export default new Router({
     routes: [
         {
             path: '/',
-            redirect: `/${defaultLocale}`,
+            redirect: `/${defaultLocale}/news`,
+        },
+        {
+            path: '/en',
+            redirect: `/${defaultLocale}/news`,
         },
         {
             path: '/:locale',
             component: {
                 template: '<router-view />',
             },
+            beforeEnter: (to, from, next) => {
+                const lang = to.params.locale;
+                if(!['en','pl','ru','fr'].includes(lang)) return next('en')
+                next();
+            },
             children: [
                 {
+                    name: 'posts',
                     path: 'news',
-                    component: News,
+                    component: News
+                },
+                {
+                    name: 'post',
+                    path: 'news/:postID',
+                    component: Post
                 },
                 {
                     path: 'spaceengineers',
                     component: SpaceEngineersPage,
-                    beforeEnter: (to, from, next) => {
-                        const lang = to.params.locale;
-
-                        if(!['en','pl','ru','fr'].includes(lang)) return next('en')
-                        if(i18n.locale !== to.params.locale) return next()
-                    
-                        axios.get('/static/translations/pages/spaceengineers.json')
-                            .then((msgs) => {
-                                _.forEach(msgs.data, (v, k) => {
-                                    i18n.setLocaleMessage(k, msgs.data[k] || msgs);
-                                });
-                                next();
-                            });
-                    }
                 },
                 {
                     path: 'donate',
@@ -83,6 +86,10 @@ export default new Router({
                     component: faqPage
                 }
             ],
+        },
+        {
+            path: '*',
+            redirect: `/${defaultLocale}/news`,
         },
     ],
 });
