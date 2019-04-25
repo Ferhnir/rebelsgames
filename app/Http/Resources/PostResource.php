@@ -27,17 +27,13 @@ class PostResource extends Resource
 
         return [
             'type'          => 'post',
-            'id'            => (string)$this->id,
+            'post_id'            => (string)$this->id,
             'attributes'    => [
                 'category'      => new PostCategoryResource($this),
-                'created_at' => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('Y-m-d'),                
-                $this->mergeWhen(($this->postID == null), [
-                    'excerpt' => json_decode($this->excerpt),
-                ]),
+                'created_at' => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('Y-m-d'),    
+                'excerpt' => json_decode($this->excerpt),
                 'subject' => json_decode($this->subject),
-                $this->mergeWhen(($this->postID != null), [
-                    'post_content' => json_decode($this->post_content),
-                ]),
+                'content' => json_decode($this->post_content),
             ],
             'author'        => new AuthorIdentifierResource($this)
         ];

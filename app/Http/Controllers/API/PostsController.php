@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Post;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\PostsResource;
+use App\Http\Resources\CheckPostUpdateResource;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,8 +14,19 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth:api')->except(['index', 'show']);
+      $this->middleware('auth:api')->except(['index', 'show', 'check']);
     }
+
+    /**
+     * Checking time of last update.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function check()
+    {
+        return response()->json(Post::select('id', 'created_at')->take(5)->get());
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +34,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return new PostsResource(Post::with(['author'])->with('category')->paginate());
+        return new PostsResource(Post::with(['author'])->with('category')->paginate(5));
     }
 
     /**

@@ -3,10 +3,9 @@
         <div class="container my-4 py-4">
             <div class="row justify-content-md-center my-4">
                 <div class="col-md-12 align-self-center">
-                      <b-card v-if="Object.keys(this.post).length !== 0" :title="post.attributes.subject[currentLocale]" :sub-title="subTitle">
+                    <b-card v-if="!$_.isEmpty(filteredList)" :title="filteredList[0].attributes.subject[currentLocale]" :sub-title="subTitle">
                         <hr />
-                        <b-card-text v-html="post.attributes.post_content[currentLocale]">
-                        </b-card-text>
+                        <b-card-text v-html="filteredList[0].attributes.content[currentLocale]" />
                     </b-card>
                 </div>
             </div>
@@ -16,36 +15,69 @@
 
 <script>
 import i18n from '../../plugins/i18n';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'News',
     data() {
         return {
-            post: {},
-            // subTitle: null
+            post: {}
         }
     },
+    methods: {
+        ...mapActions(['setPosts'])
+    },
     computed: {
+        ...mapGetters(['allPosts']),
         currentLocale() {
+
             i18n.locale = this.$route.params.locale;
             return this.$route.params.locale;
+
+        },
+        filteredList() {
+
+            if(!this.$_.isEmpty(this.allPosts)) {
+
+                return (this.allPosts.data).filter(post => {
+
+                    return post.post_id.includes(this.$route.params.postID);
+
+                });
+
+            }
+
         },
         subTitle() {
-            // return 'By ' + this.post.author.data.name + ' | ' + this.post.attributes.created_at + ' | ' + this.post.attributes.category.name;
+            let title = '';
+
+            title += 'By ' + this.filteredList[0].author.data.name;
+            title += ' | ' + this.filteredList[0].attributes.created_at;
+            title += ' | ' + this.filteredList[0].attributes.category.name;
+            
+            return title;
         }
     },
     beforeMount() {
-        this.$api.get('/api/posts/' + this.$route.params.postID)
-            .then((response) => {
-                this.post = response.data;
-                console.log(this.post.author.data.name);
-                // this.subTitle = 'By ' + this.post.author.data.name;
-                // this.subTitle += ' | ' + this.post.attributes.created_at;
-                // this.subTitle += ' | ' + this.post.attributes.category.name;
-            })
-            .catch((e) => {
-                console.log(e)
-            });
+
+        if(this.$_.isEmpty(this.allPosts)) {
+
+            let loader = this.$loading.show();
+            
+            this.$api.get('api/posts')
+             .then((response) => {
+
+                 this.setPosts(response);
+                 loader.hide();
+
+             })
+             .catch((e) => {
+
+                 loader.hide();
+                 console.log(e)
+                 
+             });
+        }
     }
 }
 </script>

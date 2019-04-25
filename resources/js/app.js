@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
 
+import _ from 'lodash';    
+Object.defineProperty(Vue.prototype, '$_', { value: _ });
+
 //Vuex config
 import Vuex from 'vuex';
 Vue.use(Vuex);

@@ -12,7 +12,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import i18n from './plugins/i18n';
-// import Localizer from './components/Localizer.vue'
 import Navbar from './components/Navbar.vue';
 
 export default {

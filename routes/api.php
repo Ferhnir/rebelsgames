@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 
+use App\Post;
+use App\Http\API\Controllers\PostsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +23,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResources([
     'posts' => 'API\PostsController'
 ]);
+
+Route::get('/check', 'API\PostsController@check');

@@ -4,16 +4,16 @@
             <div class="container my-4 py-4">
                 <div class="row justify-content-md-center my-4">
                     <div class="col-md-12 align-self-center">
-                        <b-card class="my-4" v-for="(post, index) in posts.data" :key="index">
+                        <b-card class="my-4" v-for="(post, index) in allPosts.data" :key="index">
                             <b-media>
-                                <b-link class="post-header" :to="{ name: 'post', params: { postID: post.id } }">
+                                <b-link class="post-header" :to="{ name: 'post', params: { postID: post.post_id } }">
                                     <h5 class="mt-0">{{ post.attributes.subject[currentLocale] }}</h5>
                                 </b-link>                            
                                 <small class="sub-text">by {{ post.author.data.name }} | {{ post.attributes.created_at }} | {{ post.attributes.category.name }}</small>
                                 <div class="mb-3" v-html="post.attributes.excerpt[currentLocale]"></div>
-                                <b-link :to="{ name: 'post', params: { postID: post.id } }">Read more</b-link>
+                                <b-link :to="{ name: 'post', params: { postID: post.post_id } }">Read more</b-link>
                             </b-media>
-                        </b-card>                    
+                        </b-card>      
                     </div>
                 </div>
             </div>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import i18n from '../../plugins/i18n';
 
 export default {
@@ -31,22 +32,32 @@ export default {
             posts: {}
         }
     },
-    mounted() {
+    methods: {
+        ...mapActions(['setPosts'])
+    },
+    created() {
+        
+        if(this.$_.isEmpty(this.allPosts)) {
 
-        let loader = this.$loading.show();
-
-        this.$api.get('api/posts')
+            let loader = this.$loading.show();
+            
+            this.$api.get('api/posts')
              .then((response) => {
-                 console.log(response)
-                 this.posts = response.data;
+
+                 this.setPosts(response);
                  loader.hide();
+
              })
              .catch((e) => {
+
                  loader.hide();
                  console.log(e)
+
              });
+        }
     },
     computed: {
+        ...mapGetters(['allPosts']),
         currentLocale() {
             i18n.locale = this.$route.params.locale;
             return this.$route.params.locale;
