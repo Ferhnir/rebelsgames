@@ -2,9 +2,6 @@
 
 use Illuminate\Http\Request;
 
-use App\Post;
-use App\Http\API\Controllers\PostsController;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,4 +21,6 @@ Route::apiResources([
     'posts' => 'API\PostsController'
 ]);
 
-Route::get('/check', 'API\PostsController@check');
+Route::apiResources([
+    'faqs' => 'API\FaqsController'
+]);
