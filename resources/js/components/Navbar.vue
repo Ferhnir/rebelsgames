@@ -70,17 +70,17 @@ export default {
                     { name: 'FAQ', to: 'faq' },
                 ],
                 ru: [
-                    { name: 'весть', to: 'news'  },
+                    { name: 'Новости', to: 'news'  },
                     { name: 'Космические инженеры', to: 'spaceengineers' },
-                    { name: 'дарить', to: 'donate' },
-                    { name: 'экипаж Rebels', to: 'rebelscrew' },
+                    { name: 'Пожертвовать', to: 'donate' },
+                    { name: 'Экипаж', to: 'rebelscrew' },
                     { name: 'FAQ', to: 'faq' },
                 ],
             },
             dropdownLang: {
                 en: 'Lang',
                 pl: 'Język',
-                ru: 'язык'    
+                ru: 'Язык'    
             },
             icons: {
                 en: enIcon,
