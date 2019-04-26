@@ -15,7 +15,8 @@ class CreateFaqCategoryTable extends Migration
     {
         Schema::create('rg_faq_category', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement();
-            $table->string('name')->unique();
+            $table->string('name')->unique();            
+            $table->boolean('accordion')->default(false);
             $table->timestamps();
         });
     }

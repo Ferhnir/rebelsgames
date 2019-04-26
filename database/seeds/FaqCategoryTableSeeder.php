@@ -19,7 +19,8 @@ class FaqCategoryTableSeeder extends Seeder
                 'pl' => 'Pytania i odpowiedzi',
                 'en' => 'Questions and answers',
                 'ru' => 'Вопросы и ответы'               
-            ]), 'created_at' => Carbon::now()],
+            ]), 
+            'created_at' => Carbon::now()],
             ['name' => json_encode([
                 'pl' => 'Wiadomość dnia',
                 'en' => 'Motd',

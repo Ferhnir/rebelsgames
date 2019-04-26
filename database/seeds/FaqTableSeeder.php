@@ -14,7 +14,7 @@ class FaqTableSeeder extends Seeder
     {
         DB::table('rg_faq')->insert([
             [
-                'title' => json_encode([
+                'question' => json_encode([
                     'pl' => 'Reward pl',
                     'en' => 'Reward en',
                     'ru' => 'Reward ru',
@@ -28,7 +28,7 @@ class FaqTableSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'title' => json_encode([
+                'question' => json_encode([
                     'pl' => 'Reward 2 pl',
                     'en' => 'Reward 2 en',
                     'ru' => 'Reward 2 ru',
@@ -42,7 +42,7 @@ class FaqTableSeeder extends Seeder
                 'created_at' => Carbon::now()   
             ],
             [
-                'title' => json_encode([
+                'question' => json_encode([
                     'pl' => 'Reward 3 pl',
                     'en' => 'Reward 3 en',
                     'ru' => 'Reward 3 ru',
@@ -56,7 +56,7 @@ class FaqTableSeeder extends Seeder
                 'created_at' => Carbon::now()   
             ],
             [
-                'title' => json_encode([
+                'question' => json_encode([
                     'pl' => 'Reward 4 pl',
                     'en' => 'Reward 4 en',
                     'ru' => 'Reward 4 ru',
@@ -70,7 +70,7 @@ class FaqTableSeeder extends Seeder
                 'created_at' => Carbon::now()   
             ],
             [
-                'title' => json_encode([
+                'question' => json_encode([
                     'pl' => 'Reward 5 pl',
                     'en' => 'Reward 5 en',
                     'ru' => 'Reward 5 ru',
@@ -84,7 +84,7 @@ class FaqTableSeeder extends Seeder
                 'created_at' => Carbon::now()   
             ],
             [
-                'title' => json_encode([
+                'question' => json_encode([
                     'pl' => 'Reward 6 pl',
                     'en' => 'Reward 6 en',
                     'ru' => 'Reward 6 ru',
