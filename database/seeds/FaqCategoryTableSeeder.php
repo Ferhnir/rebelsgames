@@ -23,7 +23,7 @@ class FaqCategoryTableSeeder extends Seeder
             ['name' => json_encode([
                 'pl' => 'Wiadomość dnia',
                 'en' => 'Motd',
-                'ru' => 'Информация на сегодня'               
+                'ru' => 'Информация дня'               
             ]), 'created_at' => Carbon::now()],
             ['name' => json_encode([
                 'pl' => 'Handel',
@@ -33,17 +33,17 @@ class FaqCategoryTableSeeder extends Seeder
             ['name' => json_encode([
                 'pl' => 'Surowce',
                 'en' => 'Ore info',
-                'ru' => 'Ore info'               
+                'ru' => 'Информация о руде'               
             ]), 'created_at' => Carbon::now()],
             ['name' => json_encode([
                 'pl' => 'Rafineria',
                 'en' => 'Refinery',
-                'ru' => 'Refinery'               
+                'ru' => 'Очистительный завод'               
             ]), 'created_at' => Carbon::now()],
             ['name' => json_encode([
                 'pl' => 'Komendy',
                 'en' => 'Commands',
-                'ru' => 'Commands'               
+                'ru' => 'Команды'           
             ]), 'created_at' => Carbon::now()],
         ]);
     }
