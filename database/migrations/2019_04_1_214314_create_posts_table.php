@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('post_author_id');
             $table->text('subject');
             $table->text('excerpt');
-            // $table-> post status
+            $table->boolean('active')->default(false);
             $table->longText('post_content');
             $table->timestamps();
 

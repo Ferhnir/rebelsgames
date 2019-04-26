@@ -12,12 +12,12 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $now = Carbon::now();
 
         DB::table('rg_posts')->insert([
             [
                 'post_category_id' => 1,
                 'post_author_id' => 1,
+                'active' => true,
                 'subject' => json_encode([
                     'pl' => 'Testowy temat',
                     'en' => 'Subject test',
@@ -120,11 +120,12 @@ class PostsTableSeeder extends Seeder
                     </div><!-- .et_pb_blurb_description -->
                 </div>'
                 ]),
-                'created_at' => $now
+                'created_at' => Carbon::now()
             ],
             [
                 'post_category_id' => 1,
                 'post_author_id' => 1,
+                'active' => true,
                 'subject' => json_encode([
                     'pl' => '123Testowy temat',
                     'en' => '123Subject test',
@@ -227,7 +228,7 @@ class PostsTableSeeder extends Seeder
                     </div><!-- .et_pb_blurb_description -->
                 </div>'
                 ]),
-                'created_at' => $now
+                'created_at' => Carbon::now()
             ]    
         ]);
     }

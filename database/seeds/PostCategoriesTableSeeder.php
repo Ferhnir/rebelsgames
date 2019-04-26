@@ -12,12 +12,23 @@ class PostCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $now = Carbon::now();
 
         DB::table('rg_post_category')->insert([
-            ['name' => 'Server update', 'created_at' => $now],
-            ['name' => 'Minor fixings', 'created_at' => $now],
-            ['name' => 'Other', 'created_at' => $now]
+            ['name' => json_encode([
+                'pl' => 'Testowy temat',
+                'en' => 'Server update',
+                'ru' => 'Rus sub test'
+            ]), 'created_at' => Carbon::now()],
+            ['name' => json_encode([
+                'pl' => 'Testowy temat',
+                'en' => 'Minor fixings',
+                'ru' => 'Rus sub test'
+            ]), 'created_at' => Carbon::now()],
+            ['name' => json_encode([
+                'pl' => 'Testowy temat',
+                'en' => 'Other',
+                'ru' => 'Rus sub test'
+            ]), 'created_at' => Carbon::now()]
         ]);
     }
 }
