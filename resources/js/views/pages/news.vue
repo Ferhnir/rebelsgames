@@ -7,10 +7,10 @@
                         <b-card class="my-4" v-for="(post, index) in allPosts.data" :key="index">
                             <b-media>
                                 <b-link class="post-header" :to="{ name: 'post', params: { postID: post.post_id } }">
-                                    <h5 class="mt-0">{{ post.attributes.subject[currentLocale] }}</h5>
+                                    <h5 class="mt-0">{{ post.attributes.subject[$route.params.locale] }}</h5>
                                 </b-link>                            
-                                <small class="sub-text">by {{ post.author.data.name }} | {{ post.attributes.created_at }} | {{ post.attributes.category.name }}</small>
-                                <div class="mb-3" v-html="post.attributes.excerpt[currentLocale]"></div>
+                                <small class="sub-text">by {{ post.author.data.name }} | {{ post.attributes.created_at }} | {{ post.attributes.category.name[$route.params.locale] }}</small>
+                                <div class="mb-3" v-html="post.attributes.excerpt[$route.params.locale]"></div>
                                 <b-link :to="{ name: 'post', params: { postID: post.post_id } }">Read more</b-link>
                             </b-media>
                         </b-card>      

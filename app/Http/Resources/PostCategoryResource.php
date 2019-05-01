@@ -16,7 +16,7 @@ class PostCategoryResource extends Resource
     {
         return [
             'id'   => $this->category->id,
-            'name' => $this->category->name
+            'name' => json_decode($this->category->name)
         ];
     }
 }

@@ -7,6 +7,7 @@ import faqPage from '../views/pages/faq.vue';
 import SpaceEngineersPage from '../views/pages/spaceengineers.vue';
 import News from '../views/pages/news.vue';
 import Post from '../views/pages/post.vue';
+import OreAndRefineryPage from '../views/pages/OreAndRefinery.vue';
 import i18n from '../plugins/i18n';
 
 import axios from 'axios';
@@ -84,6 +85,10 @@ export default new Router({
                 {
                     path: 'faq',
                     component: faqPage
+                },
+                {
+                    path: 'oreandrefinery',
+                    component: OreAndRefineryPage
                 }
             ],
         },

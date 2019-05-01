@@ -15,37 +15,57 @@ class FaqCategoryTableSeeder extends Seeder
     {
 
         DB::table('rg_faq_category')->insert([
-            ['name' => json_encode([
-                'pl' => 'Pytania i odpowiedzi',
-                'en' => 'Questions and answers',
-                'ru' => 'Вопросы и ответы'               
-            ]), 
+            [
+                'name' => json_encode([
+                    'pl' => 'Pytania i odpowiedzi',
+                    'en' => 'FAQ',
+                    'ru' => 'Вопросы и ответы'               
+                ]),
+                'accordion'  => 1,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'name' => json_encode([
+                    'pl' => 'Wiadomość dnia',
+                    'en' => 'Motd',
+                    'ru' => 'Информация дня'               
+                ]),
+                'accordion'  => 0,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'name' => json_encode([
+                    'pl' => 'Handel',
+                    'en' => 'Trade',
+                    'ru' => 'Торговля'               
+                ]),
+                'accordion'  => 0,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'name' => json_encode([
+                    'pl' => 'Surowce',
+                    'en' => 'Ore and refinery',
+                    'ru' => 'Информация о руде'               
+                ]),
+            'accordion'  => 0,
             'created_at' => Carbon::now()],
-            ['name' => json_encode([
-                'pl' => 'Wiadomość dnia',
-                'en' => 'Motd',
-                'ru' => 'Информация дня'               
-            ]), 'created_at' => Carbon::now()],
-            ['name' => json_encode([
-                'pl' => 'Handel',
-                'en' => 'Trade',
-                'ru' => 'Торговля'               
-            ]), 'created_at' => Carbon::now()],
-            ['name' => json_encode([
-                'pl' => 'Surowce',
-                'en' => 'Ore info',
-                'ru' => 'Информация о руде'               
-            ]), 'created_at' => Carbon::now()],
-            ['name' => json_encode([
-                'pl' => 'Rafineria',
-                'en' => 'Refinery',
-                'ru' => 'Очистительный завод'               
-            ]), 'created_at' => Carbon::now()],
-            ['name' => json_encode([
-                'pl' => 'Komendy',
-                'en' => 'Commands',
-                'ru' => 'Команды'           
-            ]), 'created_at' => Carbon::now()],
+            [
+                'name' => json_encode([
+                    'pl' => 'Rafineria',
+                    'en' => 'Refinery',
+                    'ru' => 'Очистительный завод'               
+                ]),
+            'accordion'  => 0,
+            'created_at' => Carbon::now()],
+            [
+                'name' => json_encode([
+                    'pl' => 'Komendy',
+                    'en' => 'Commands',
+                    'ru' => 'Команды'           
+                ]),
+            'accordion'  => 0,
+            'created_at' => Carbon::now()],
         ]);
     }
 }

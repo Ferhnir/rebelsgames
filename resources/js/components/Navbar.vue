@@ -60,21 +60,21 @@ export default {
                     { name: 'Space Engineers', to: 'spaceengineers' },
                     { name: 'Donate', to: 'donate' },
                     { name: 'Rebels Crew', to: 'rebelscrew' },
-                    { name: 'FAQ', to: 'faq' },
+                    { name: 'FAQ', to: 'faq' }
                 ],
                 pl: [
                     { name: 'Aktualności', to: 'news' },
                     { name: 'Kosmiczni Inżynierowie', to: 'spaceengineers' },
                     { name: 'Dotacja', to: 'donate' },
                     { name: 'Załoga Rebels', to: 'rebelscrew' },
-                    { name: 'FAQ', to: 'faq' },
+                    { name: 'FAQ', to: 'faq' }
                 ],
                 ru: [
                     { name: 'Новости', to: 'news'  },
                     { name: 'Космические инженеры', to: 'spaceengineers' },
                     { name: 'Пожертвовать', to: 'donate' },
                     { name: 'Экипаж', to: 'rebelscrew' },
-                    { name: 'FAQ', to: 'faq' },
+                    { name: 'FAQ', to: 'faq' }
                 ],
             },
             dropdownLang: {

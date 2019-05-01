@@ -4,11 +4,16 @@
             <div class="row py-4">
                 <div class="col-md-12">
                       <b-card no-body>
-                        <b-tabs pills card>
-                            <b-tab v-for="(faq, index) in allFaqs.data" :title="faq.name[currentLocale]" :active="index == 0" :key="index">
+                        <b-tabs content-class="mt-3" class="p-2" pills card justified>
+                            <b-tab v-for="(faq, index) in allFaqs.data" :title="faq.name[$route.params.locale]" :active="index == 0" :key="index">
                                 <b-card-text>
-                                    {{ faq.resources.length }}
-                                    <accordion v-if="faq.accordion == true" :accordion-Obj="faq.resources"></accordion>
+                                    <accordion v-if="faq.accordion == true" :accordion-obj="faq.resources"></accordion>
+                                    <div v-if="faq.accordion == false">
+                                        <div v-if="!$_.isEmpty(faq.resources)">
+                                            <div v-html="$_.head(faq.resources).answer[$route.params.locale]"></div>
+                                            <component :is="$_.head(faq.resources).vuecomponent" v-if="$_.head(faq.resources).vuecomponent" />
+                                        </div>
+                                    </div>
                                 </b-card-text>
                             </b-tab>
                         </b-tabs>
@@ -20,13 +25,21 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import i18n from '../../plugins/i18n';
 import accordion from '../../components/Accordion.vue';
+
+//sub pages
+import OreAndRefineryPage from './OreAndRefinery.vue';
 
 export default {
     name: 'faqPage',
     components: {
-        accordion
+        accordion,
+        OreAndRefineryPage
+    },
+    data() {
+        return {
+            component: null,
+        }
     },
     created() {        
         if(this.$_.isEmpty(this.allFaqs)) {
@@ -52,12 +65,22 @@ export default {
         ...mapActions(['setFaqs'])
     },
     computed: {
-        ...mapGetters(['allFaqs']),
-        currentLocale() {
-            i18n.locale = this.$route.params.locale;
-            return this.$route.params.locale;
-        }
+        ...mapGetters(['allFaqs'])
     }
 }
 </script>
+<style scoped>
+    .faq-bg {
+        background-size: initial;
+        background-repeat: repeat;
+        /* background-blend-mode:  */
+    }
 
+    .card {
+        border: none;
+    }
+
+    .card-header {
+        border-bottom: 0px;
+    }
+</style>

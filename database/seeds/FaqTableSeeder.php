@@ -25,6 +25,7 @@ class FaqTableSeeder extends Seeder
                     'ru' => 'How it works? It is very easy! Being on the server, enter “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!'               
                     ]), 
                 'faq_category_id' => 1,
+                'vue_component'   => 'OreAndRefineryPage',
                 'created_at' => Carbon::now()
             ],
             [
@@ -39,6 +40,7 @@ class FaqTableSeeder extends Seeder
                     'ru' => 'How it works? It is very easy! Being on the server, enter “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!'               
                     ]), 
                 'faq_category_id' => 1,
+                'vue_component'   => 'OreAndRefineryPage',
                 'created_at' => Carbon::now()   
             ],
             [
@@ -53,6 +55,7 @@ class FaqTableSeeder extends Seeder
                     'ru' => 'How it works? It is very easy! Being on the server, enter “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!'               
                     ]), 
                 'faq_category_id' => 1,
+                'vue_component'   => 'OreAndRefineryPage',
                 'created_at' => Carbon::now()   
             ],
             [
@@ -67,6 +70,7 @@ class FaqTableSeeder extends Seeder
                     'ru' => 'How it works? It is very easy! Being on the server, enter “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!'               
                     ]), 
                 'faq_category_id' => 1,
+                'vue_component'   => 'OreAndRefineryPage',
                 'created_at' => Carbon::now()   
             ],
             [
@@ -81,6 +85,7 @@ class FaqTableSeeder extends Seeder
                     'ru' => 'How it works? It is very easy! Being on the server, enter “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!'               
                     ]), 
                 'faq_category_id' => 2,
+                'vue_component'   => 'OreAndRefineryPage',
                 'created_at' => Carbon::now()   
             ],
             [
@@ -95,6 +100,7 @@ class FaqTableSeeder extends Seeder
                     'ru' => 'How it works? It is very easy! Being on the server, enter “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!'               
                     ]), 
                 'faq_category_id' => 3,
+                'vue_component'   => 'OreAndRefineryPage',
                 'created_at' => Carbon::now()   
             ]
         ]);

@@ -19,8 +19,9 @@ class FaqResource extends Resource
     public function toArray($request)
     {
         return [
-            'question'     => json_decode($this->question),
-            'answer'    => json_decode($this->answer)
+            'question'       => json_decode($this->question),
+            'answer'         => json_decode($this->answer),
+            'vuecomponent' => $this->vue_component
         ];
     }
 }

@@ -17,6 +17,7 @@ class CreateFaqTable extends Migration
             $table->unsignedBigInteger('id')->autoIncrement();
             $table->text('question');
             $table->longText('answer');
+            $table->string('vue_component')->nullable(true);
             $table->timestamps();
         });
     }
