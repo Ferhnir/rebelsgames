@@ -45,7 +45,7 @@ class FaqCategoryTableSeeder extends Seeder
             [
                 'name' => json_encode([
                     'pl' => 'Surowce',
-                    'en' => 'Ore and refinery',
+                    'en' => 'Ore info',
                     'ru' => 'Информация о руде'               
                 ]),
             'accordion'  => 0,

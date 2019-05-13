@@ -2,31 +2,19 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Post;
-use App\Http\Resources\PostResource;
-use App\Http\Resources\PostsResource;
-use App\Http\Resources\CheckPostUpdateResource;
+use App\Http\Resources\OreOccurrenceResource;
+use App\CelestialObjCategory;
+use App\Http\Resources\CelestialCategoryCollection;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PostsController extends Controller
+class OreOccurrController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth:api')->except(['index', 'show', 'check']);
+      $this->middleware('auth:api')->except(['index', 'show']);
     }
-
-    /**
-     * Checking time of last update.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function check()
-    {
-        return response()->json(Post::select('id', 'created_at')->take(5)->get());
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +22,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return new PostsResource(Post::with('author')->with('category')->paginate(5));
+        return new OreOccurrenceResource(CelestialObjCategory::all());
     }
 
     /**
@@ -51,23 +39,22 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Posts  $posts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($postid)
+    public function show($id)
     {
-        PostResource::withoutWrapping();
-        return new PostResource(Post::find($postid));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Posts  $posts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +62,10 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Posts  $posts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
         //
     }

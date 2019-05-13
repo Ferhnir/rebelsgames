@@ -13,3 +13,11 @@ Route::apiResources([
 Route::apiResources([
     'faqs' => 'API\FaqsController'
 ]);
+
+Route::apiResources([
+    'ores' => 'API\OreOccurrController'
+]);
+
+Route::apiResources([
+    'celestials' => 'API\CelestialObjectController'
+]);

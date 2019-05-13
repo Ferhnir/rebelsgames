@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PostsTableSeeder::class);
         $this->call(FaqCategoryTableSeeder::class);
         $this->call(FaqTableSeeder::class);
+        $this->call(OreTableSeeder::class);
+        $this->call(CelestialCategorySeeder::class);
+        $this->call(CelestialObjSeeder::class);
     }
 }

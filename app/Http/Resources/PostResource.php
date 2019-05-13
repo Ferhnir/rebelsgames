@@ -8,14 +8,6 @@ use Illuminate\Support\Carbon;
 
 class PostResource extends Resource
 {
-
-    protected $postID;
-
-    public function postMeta($value){
-        $this->postID = $value;
-        return $this;
-    }
-
     /**
      * Transform the resource into an array.
      *
