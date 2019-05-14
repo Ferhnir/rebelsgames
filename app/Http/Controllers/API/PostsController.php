@@ -18,16 +18,6 @@ class PostsController extends Controller
     }
 
     /**
-     * Checking time of last update.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function check()
-    {
-        return response()->json(Post::select('id', 'created_at')->take(5)->get());
-    }
-
-    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

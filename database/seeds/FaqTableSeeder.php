@@ -95,9 +95,9 @@ class FaqTableSeeder extends Seeder
                     'ru' => 'Reward 6 ru',
                     ]), 
                 'answer' => json_encode([
-                    'pl' => 'Jak to działa? To jest bardzo proste! W czasie rozgrywki w oknie czatu wpisz komende “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!',
-                    'en' => 'How it works? It is very easy! Being on the server, enter “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!',
-                    'ru' => 'How it works? It is very easy! Being on the server, enter “vote” in chat window cast your vote and write “!reward” You will get: 120 Rebels Components!'               
+                    'pl' => 'Opis ore',
+                    'en' => 'Ore desc',
+                    'ru' => 'Ore desc'               
                     ]), 
                 'faq_category_id' => 4,
                 'vue_component'   => 'OreInfoPage',
