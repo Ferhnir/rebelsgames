@@ -21,3 +21,7 @@ Route::apiResources([
 Route::apiResources([
     'celestials' => 'API\CelestialObjectController'
 ]);
+
+Route::apiResources([
+    'faq/commands' => 'API\FaqsCommandController'
+]);

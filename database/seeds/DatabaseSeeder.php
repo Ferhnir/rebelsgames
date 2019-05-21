@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OreTableSeeder::class);
         $this->call(CelestialCategorySeeder::class);
         $this->call(CelestialObjSeeder::class);
+        $this->call(FaqCommandsSeeder::class);
     }
 }

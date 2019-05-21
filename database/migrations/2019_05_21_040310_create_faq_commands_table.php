@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCelestialObjectTable extends Migration
+class CreateFaqCommandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateCelestialObjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('rg_celestial_obj', function (Blueprint $table) {
+        Schema::create('rg_faq_commands', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement();
-            $table->text('name');
+            $table->char('command',15);
+            $table->text('description');
+            $table->text('additional_desc')->nullable(true);
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateCelestialObjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rg_celestial_obj');
+        Schema::dropIfExists('rg_faq_commands');
     }
 }
