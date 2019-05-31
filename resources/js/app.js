@@ -14,6 +14,9 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 Vue.use(BootstrapVue);
 
+import PortalVue from 'portal-vue'
+Vue.use(PortalVue)
+
 import router from './router';
 import i18n from './plugins/i18n'; 
 

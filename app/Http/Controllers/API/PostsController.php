@@ -14,7 +14,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth:api')->except(['index', 'show', 'check']);
+      $this->middleware('auth:api')->except(['index', 'show']);
     }
 
     /**

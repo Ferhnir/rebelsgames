@@ -102,6 +102,21 @@ class FaqTableSeeder extends Seeder
                 'faq_category_id' => 4,
                 'vue_component'   => 'OreInfoPage',
                 'created_at' => Carbon::now()   
+            ],
+            [
+                'question' => json_encode([
+                    'pl' => 'Reward 6 pl',
+                    'en' => 'Reward 6 en',
+                    'ru' => 'Reward 6 ru',
+                    ]), 
+                'answer' => json_encode([
+                    'pl' => 'Komendy w grze',
+                    'en' => 'In game commands',
+                    'ru' => 'In game commands'               
+                    ]), 
+                'faq_category_id' => 6,
+                'vue_component'   => 'InGameCommands',
+                'created_at' => Carbon::now()   
             ]
         ]);
     }

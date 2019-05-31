@@ -3,7 +3,7 @@
         <b-row class="py-4">
             <b-col md="12">
                 <b-card no-body>
-                    <b-tabs content-class="mt-3" class="p-2" pills card justified>
+                    <b-tabs v-if="!$_.isEmpty(allFaqs.data)" content-class="mt-3" class="p-2" pills card justified>
                         <b-tab v-for="(faq, index) in allFaqs.data" :title="faq.name[$route.params.locale]" :active="index == 0" :key="index">
                             <b-card-text>
                                 <accordion v-if="faq.accordion == true" :accordion-obj="faq.resources"></accordion>
@@ -26,13 +26,15 @@ import { mapGetters, mapActions } from 'vuex';
 import accordion from '../../components/Accordion.vue';
 
 //sub pages
-import OreInfoPage from './OreInfo.vue';
+import OreInfoPage from './faq/OreInfo.vue';
+import InGameCommands from './faq/InGameCommands.vue';
 
 export default {
     name: 'faqPage',
     components: {
         accordion,
-        OreInfoPage
+        OreInfoPage,
+        InGameCommands
     },
     data() {
         return {
@@ -48,6 +50,7 @@ export default {
              .then((response) => {
 
                  this.setFaqs(response);
+                 console.log(response.data);
                  loader.hide();
 
              })
