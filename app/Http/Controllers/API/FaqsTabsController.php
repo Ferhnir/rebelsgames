@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Resources\OreOccurrenceResource;
-use App\CelestialObjCategory;
-use App\Http\Resources\CelestialCategoryCollection;
+use App\FaqTabs;
+use App\Http\Resources\FaqTabsCollection;
+use App\Http\Resources\FaqTabsResource;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class OreOccurrController extends Controller
+class FaqsTabsController extends Controller
 {
     public function __construct()
     {
@@ -22,7 +22,24 @@ class OreOccurrController extends Controller
      */
     public function index()
     {
-        return new OreOccurrenceResource(CelestialObjCategory::all());
+        return [
+            'status'        => '',
+            'code'          => 200,
+            'messages'      => [],
+            'data'          => [
+                'tabs'    => new FaqTabsCollection(FaqTabs::all())
+            ]
+        ];
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -39,10 +56,21 @@ class OreOccurrController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Faq $faq)
+    {
+        return new FaqTabsResource(FaqTabs::find($faq));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Faq  $faq
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Faq $faq)
     {
         //
     }
@@ -51,10 +79,10 @@ class OreOccurrController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Faq $faq)
     {
         //
     }
@@ -62,10 +90,10 @@ class OreOccurrController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Faq $faq)
     {
         //
     }

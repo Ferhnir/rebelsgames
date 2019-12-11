@@ -22,13 +22,7 @@ class OreResource extends Resource
     {
         return [
             'id'    => $this->id,
-            'name'  => json_decode($this->name),
-            'celestials' => [
-                'planet1' => true,
-                'planet2' => false
-            ]
-
-            // 'celestials' => CelestialObjectResource::collection(CelestialObject::whereIn('id',json_decode($this->occurrence_obj_id))->get())
+            'name'  => json_decode($this->name)
         ];
     }
 }

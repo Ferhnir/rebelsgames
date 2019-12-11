@@ -11,17 +11,17 @@ Route::apiResources([
 ]);
 
 Route::apiResources([
-    'faqs' => 'API\FaqsController'
-]);
-
-Route::apiResources([
-    'ores' => 'API\OreOccurrController'
-]);
-
-Route::apiResources([
-    'celestials' => 'API\CelestialObjectController'
+    'faqs/tabs' => 'API\FaqsTabsController'
 ]);
 
 Route::apiResources([
     'faq/commands' => 'API\FaqsCommandController'
+]);
+
+Route::apiResources([
+    'ores' => 'API\OreController'
+]);
+
+Route::apiResources([
+    'celestials' => 'API\CelestialObjectController'
 ]);

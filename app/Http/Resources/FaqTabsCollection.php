@@ -2,12 +2,10 @@
 
 namespace App\Http\Resources;
 
-use App\FaqCategory;
-
-use  App\Http\Resources\FaqCategoriesResource;
+use App\Http\Resources\FaqTabsResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class FaqsResource extends ResourceCollection
+class FaqTabsCollection extends ResourceCollection
 {
     /**
      * Transform the resource into an array.
@@ -17,6 +15,6 @@ class FaqsResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return FaqResource::collection($this->collection);
+        return FaqTabsResource::collection($this->collection);
     }
 }

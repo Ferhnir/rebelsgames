@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Faq extends Model
+class FaqTabs extends Model
 {
-    protected $table = "rg_faq";
+    protected $table = "rg_faq_tabs";
 }

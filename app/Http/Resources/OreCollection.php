@@ -16,7 +16,7 @@ class OreCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'ores' => OreResource::collection($this->collection)
+            'ore' => OreResource::collection($this->collection)
         ];
     }
 }

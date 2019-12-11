@@ -13,30 +13,8 @@
                         </b-input-group>
                         </b-form-group>
                     </b-col>
-                    <hr />
-                    <b-tabs content-class="mt-3" fill v-if="!$_.isEmpty(allOres.data)">
-                        <b-tab v-for="(celestials, csIndex) in allOres.data.celestials" :key="csIndex" :title="celestials.name[$route.params.locale]">
-                            <table class="table table-bordered table-sm table-dark">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Ore</th>
-                                        <th scope="col" v-for="(celestial, cIndex) in celestials.resources[0].celestial_occurr" :key="cIndex">
-                                            {{ celestial.name[$route.params.locale] }}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="(ore, oIndex) in celestials.resources" :key="oIndex">                                    
-                                        <th scope="row">
-                                            {{ ore.name[$route.params.locale] }}
-                                        </th>
-                                        <td v-for="(celestialObj, coIndex) in ore.celestial_occurr" :key="coIndex" :class="[celestialObj.v ? 'bg-success' : 'bg-danger']">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </b-tab>
-                    </b-tabs>
+                    <br />
+                    <b-table v-if="allOres.data.ore" :items="allOres.data.ore" :fields="fields" :filter="filter"></b-table>
                 </div>
             </div>
         </div>
@@ -50,7 +28,15 @@ export default {
     data() {
         return {
             filter: null,
-            fields: {}
+            fields: [{
+                        key: 'id',
+                        label: 'ID'
+                    },{
+                        key: 'name',
+                        formatter: value => {
+                            return value[this.$route.params.locale];
+                        }
+                    }]
         }
     },
     beforeMount() {

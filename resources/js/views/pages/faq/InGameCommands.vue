@@ -2,8 +2,8 @@
     <div>
         <div class="container py-4 my-4">
             <div class="row justify-content-md-center py-4">
-                <div class="col-md-8" v-if="!$_.isEmpty(allCommands.data)">
-                    <b-table :fields="fields" :items="allCommands.data.commands"></b-table>
+                <div class="col-md-8" >
+                    <b-table v-if="allCommands.data" :fields="fields" :items="allCommands.data.commands"></b-table>
                 </div>
             </div>
         </div>

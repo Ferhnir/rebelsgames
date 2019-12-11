@@ -4,15 +4,9 @@
             <b-col md="12">
                 <b-card no-body>
                     <b-tabs v-if="!$_.isEmpty(allFaqs.data)" content-class="mt-3" class="p-2" pills card justified>
-                        <b-tab v-for="(faq, index) in allFaqs.data" :title="faq.name[$route.params.locale]" :active="index == 0" :key="index">
+                        <b-tab v-for="(faq, index) in allFaqs.data.tabs" :title="faq.name[$route.params.locale]" :active="index == 0" :key="index">
                             <b-card-text>
-                                <accordion v-if="faq.accordion == true" :accordion-obj="faq.resources"></accordion>
-                                <div v-if="faq.accordion == false">
-                                    <div v-if="!$_.isEmpty(faq.resources)">
-                                        <div v-html="$_.head(faq.resources).answer[$route.params.locale]"></div>
-                                        <component :is="$_.head(faq.resources).vuecomponent" v-if="$_.head(faq.resources).vuecomponent" />
-                                    </div>
-                                </div>
+                                <component v-if="faq.vueComponent !== null" :is="faq.vueComponent" />
                             </b-card-text>
                         </b-tab>
                     </b-tabs>
@@ -26,19 +20,19 @@ import { mapGetters, mapActions } from 'vuex';
 import accordion from '../../components/Accordion.vue';
 
 //sub pages
-import OreInfoPage from './faq/OreInfo.vue';
-import InGameCommands from './faq/InGameCommands.vue';
+import oreInfo from './faq/OreInfo.vue';
+import inGameCommands from './faq/InGameCommands.vue';
 
 export default {
     name: 'faqPage',
     components: {
         accordion,
-        OreInfoPage,
-        InGameCommands
+        oreInfo,
+        inGameCommands
     },
     data() {
         return {
-            component: null,
+            component: null
         }
     },
     created() {        
@@ -46,7 +40,7 @@ export default {
 
             let loader = this.$loading.show();
             
-            this.$api.get('api/faqs')
+            this.$api.get('api/faqs/tabs')
              .then((response) => {
 
                  this.setFaqs(response);

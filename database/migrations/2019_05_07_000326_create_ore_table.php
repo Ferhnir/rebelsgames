@@ -16,7 +16,6 @@ class CreateOreTable extends Migration
         Schema::create('rg_ore', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement();
             $table->text('name');
-            $table->text('occurrence_obj_id')->default(null);
             $table->timestamps();
         });
     }

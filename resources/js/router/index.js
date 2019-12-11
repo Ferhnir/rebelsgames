@@ -7,26 +7,8 @@ import faqPage from '../views/pages/faq.vue';
 import SpaceEngineersPage from '../views/pages/spaceengineers.vue';
 import News from '../views/pages/news.vue';
 import Post from '../views/pages/post.vue';
-import i18n from '../plugins/i18n';
 
-import axios from 'axios';
 Vue.use(Router);
-
-// function loadPageTranslation(pageName, to, next) {
-//     const lang = to.params.locale;
-
-//     if(!['en','pl','ru','fr'].includes(lang)) return next('en')
-
-
-//     axios.get('/static/translations/pages/'+ pageName +'.json')
-//         .then((msgs) => {
-//             _.forEach(msgs.data, (v, k) => {
-//                 i18n.setLocaleMessage(k, msgs.data[k] || msgs);
-//             });
-
-//             console.log(i18n.messages)
-//         });
-// }
 
 export default new Router({
     routes: [
@@ -45,7 +27,7 @@ export default new Router({
             },
             beforeEnter: (to, from, next) => {
                 const lang = to.params.locale;
-                if(!['en','pl','ru','fr'].includes(lang)) return next('en')
+                if(!_.includes(['en','pl','ru','fr'], lang)) return next('en')
                 next();
             },
             children: [

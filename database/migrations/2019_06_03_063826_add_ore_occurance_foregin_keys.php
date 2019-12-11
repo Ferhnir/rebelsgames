@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFaqCategoryIdToRgFaqTable extends Migration
+class AddOreOccuranceForeginKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class AddFaqCategoryIdToRgFaqTable extends Migration
      */
     public function up()
     {
-        Schema::table('rg_faq', function (Blueprint $table) {            
-            $table->unsignedBigInteger('faq_category_id');
-
-            $table->foreign('faq_category_id')
-            ->references('id')->on('rg_faq_category')
+        Schema::table('ore_occurance', function (Blueprint $table) {            
+            $table->foreign('ore_id')
+            ->references('id')->on('rg_ore')
             ->onDelete('cascade');
+
+            $table->foreign('celestial_id')
+                ->references('id')->on('rg_celestial_obj')
+                ->onDelete('cascade');
         });
     }
 
@@ -29,8 +31,6 @@ class AddFaqCategoryIdToRgFaqTable extends Migration
      */
     public function down()
     {
-        Schema::table('rg_faq', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

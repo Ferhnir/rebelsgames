@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
-use App\FaqCategory;
-// use App\Http\Resources\FaqsResource;
-use App\Http\Resources\FaqCategoriesResource;
+use App\Ore;
+use App\Http\Resources\OreCollection;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FaqsController extends Controller
+class OreController extends Controller
 {
     public function __construct()
     {
@@ -22,17 +21,7 @@ class FaqsController extends Controller
      */
     public function index()
     {
-        return new FaqCategoriesResource(FaqCategory::all());
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return new OreCollection(Ore::all());
     }
 
     /**
@@ -49,21 +38,10 @@ class FaqsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Faq  $faq
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Faq $faq)
-    {
-        return new FaqCatRes(Faq::find($faq));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Faq  $faq
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Faq $faq)
+    public function show($id)
     {
         //
     }
@@ -72,10 +50,10 @@ class FaqsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Faq  $faq
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -83,10 +61,10 @@ class FaqsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Faq  $faq
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faq $faq)
+    public function destroy($id)
     {
         //
     }
